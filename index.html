@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html data-is-hyperloop="true" lang="fr" dir="ltr" xmlns:fb="http://ogp.me/ns/fb#" class="js-focus-visible">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script async="" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/gtm.js.download"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300&display=swap" rel="stylesheet">
+    <link href="main.css" rel="stylesheet">
+    <script>
+        window.sherlock_firstbyte = window.performance && window.performance.timing ? window.performance.timing.responseStart : Number(new Date());
+    </script>
+    <script>
+        ! function() {
+            "use strict";
+            var e = 730,
+                n = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+            var t = /(?:^| )bev=(.*?)(?:;|$)/,
+                o = !1;
+
+            function a() {
+                return window.bev = window.bev || function() {
+                    if (o || "undefined" == typeof document) return null;
+                    o = !0;
+                    var e = (document.cookie || "").match(t);
+                    return e && 2 === e.length ? decodeURIComponent(e[1]) : null
+                }(), window.bev
+            }! function() {
+                try {
+                    if (!a()) {
+                        var t = function() {
+                            for (var e = [], t = 15; t >= 0; t--) e.push(n[Math.floor(Math.random() * n.length)]);
+                            var o = Math.floor(Date.now() / 1e3);
+                            return "".concat(o, "_").concat(e.join(""))
+                        }();
+                        o = t, r = document.location.hostname, c = ".".concat(r.slice(r.indexOf("airbnb."))), (i = new Date).setDate(i.getDate() + e), document.cookie = ["bev=".concat(encodeURIComponent(o)), "expires=".concat(i.toUTCString()), "path=/", "domain=".concat(c), "secure"].join("; "), window.bev = t,
+                            function(e) {
+                                var n = new XMLHttpRequest;
+                                n.open("POST", "/tracking/events", !0), n.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+                                var t = {
+                                    event_name: "bev_created",
+                                    event_data: {
+                                        bev: e,
+                                        page_uri: document.location.pathname,
+                                        page_referrer: document.referrer
+                                    }
+                                };
+                                n.send(JSON.stringify(t))
+                            }(t)
+                    }
+                } catch (e) {
+                    window.console && console.error("Could not set bev cookie:", e)
+                }
+                var o, r, c, i
+            }()
+        }();
+    </script>
+    <script>
+        (function() {
+            var pgRequest = new XMLHttpRequest();
+            var diffStamp = Date.now().toString() + Math.random().toString().substring(2);
+            pgRequest.open('GET', '/pg_pixel?r=' + encodeURIComponent(document.referrer || '') + '&diff=' + diffStamp, true);
+            pgRequest.send();
+        })()
+    </script>
+    <script>
+        // Source: { airbnb repo }/airbnb-first-input-delay/blob/eff4e3d5fc430272f712a188cccbdf223ef2cfed/dist/first-input-delay.min.js
+        ! function(n, e) {
+            var t, i, c, o, r = [],
+                f = {
+                    passive: !0,
+                    capture: !0
+                },
+                u = new Date,
+                a = "pointerup",
+                p = "pointercancel";
+
+            function l(n, e) {
+                t || (t = e, i = n, c = new Date, s())
+            }
+
+            function s() {
+                i >= 0 && i < c - u && (r.forEach(function(n) {
+                    n(i, t)
+                }), r = [])
+            }
+
+            function w(t) {
+                if (t.cancelable) {
+                    var i = (t.timeStamp > 1e12 ? new Date : performance.now()) - t.timeStamp;
+                    "pointerdown" == t.type ? function(t, i) {
+                        function c() {
+                            l(t, i), r()
+                        }
+
+                        function o() {
+                            r()
+                        }
+
+                        function r() {
+                            e(a, c, f), e(p, o, f)
+                        }
+                        n(a, c, f), n(p, o, f)
+                    }(i, t) : l(i, t)
+                }
+            }
+            o = n, ["click", "mousedown", "keydown", "touchstart", "pointerdown"].forEach(function(n) {
+                o(n, w, f)
+            }), self.perfMetrics = self.perfMetrics || {}, self.perfMetrics.onFirstInputDelay = function(n) {
+                r.push(n), s()
+            }, self.perfMetrics.clearFirstInputDelay = function() {
+                t && (t = null, i = null, c = null)
+            }
+        }(addEventListener, removeEventListener);
+
+        // FCP init code. Verbose version at ./utils/fcpPolyfill
+        var rAF = window.requestAnimationFrame;
+        window._fcpPolyfill = new function() {
+            var n, o;
+            this.onFCP = function(e) {
+                o ? e(o) : n = e
+            }, rAF(function e() {
+                document.body && null !== document.createNodeIterator(document.body, NodeFilter.SHOW_TEXT, function(e) {
+                    return !!e && /[^s]/.test(e.nodeValue) && "SCRIPT" !== e.parentNode.tagName && "STYLE" !== e.parentNode.tagName && 0 < e.parentNode.offsetHeight
+                }, !1).nextNode() || null !== document.querySelector("input[placeholder]") ? rAF(function() {
+                    var e = performance.now();
+                    n ? n(e) : o = e
+                }) : rAF(e)
+            })
+        };
+
+        // TTFMP Polyfill code. Verbose version at ./utils/fmpPolyfill
+        window._fmpPolyfill = new function() {
+            var i, o, r, a, m = "FMP-target";
+            this.checkForFMP = function e() {
+                var n = document.getElementById(m);
+                if (a = 0, n)
+                    if (r === n) i = requestAnimationFrame(e);
+                    else if ("IMG" !== n.tagName || n.complete) {
+                    var t = performance.now();
+                    r = n, o ? o(t) : a = t
+                } else i = requestAnimationFrame(e);
+                else i = requestAnimationFrame(e)
+            }, this.refreshHeroElement = function() {
+                r = document.getElementById(m)
+            }, this.stopSearchingForFMP = function() {
+                cancelAnimationFrame(i)
+            }, this.onFMP = function(e) {
+                a ? e(a) : o = e
+            }, i = requestAnimationFrame(this.checkForFMP)
+        };
+    </script>
+    <meta name="locale" content="fr">
+    <meta name="google" content="notranslate">
+    <meta property="fb:app_id" content="138566025676">
+    <meta property="og:site_name" content="Villa Azur">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:url" content="https://www.airbnb.fr/luxury">
+    <meta property="og:title" content="Villa Azur">
+    <meta property="og:description" content="Votre unique destination au Maroc.">
+    <meta property="og:image:height" content="900px">
+    <meta property="og:image:width" content="1600px">
+    <meta property="og:type" content="website">
+    <link crossorigin="anonymous" href="./Locations de vacances, logements, expériences et lieux - Airbnb_files/common-a9dbf5a01e2f51f25c32a0127755abf7.css" rel="stylesheet" type="text/css" media="all">
+    <link href="./Locations de vacances, logements, expériences et lieux - Airbnb_files/map_search-05b2e8d7a5602d7f9224bf29250fcd41.css" rel="stylesheet" type="text/css" media="all">
+    <link href="./Locations de vacances, logements, expériences et lieux - Airbnb_files/dls-lite_cereal-d9f6fdb2a0dd4a18c37f8ee01de8ec3d.css" rel="stylesheet" type="text/css" media="all">
+    <link href="./Locations de vacances, logements, expériences et lieux - Airbnb_files/dls-lite_o2-leftover-3644a5fa97a2e311cd1cd1dab8abaf5f.css" rel="stylesheet" type="text/css" media="all">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="image_src" href="https://a0.muscache.com/airbnb/static/logos/trips-og-200x200-a3be4fbbb3b6c5e758804438dea35adc.jpg">
+    <meta id="csrf-param-meta-tag" name="csrf-param" content="authenticity_token">
+    <meta id="csrf-token-meta-tag" name="csrf-token" content="null">
+    <title>Villa Azur</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta id="english-canonical-url" content="">
+    <meta name="twitter:widgets:csp" content="on">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Airbnb">
+    <meta name="apple-mobile-web-app-title" content="Airbnb">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="msapplication-navbutton-color" content="#ffffff">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="msapplication-starturl" content="/?utm_source=homescreen">
+    <link rel="apple-touch-icon" href="https://a0.muscache.com/airbnb/static/icons/apple-touch-icon-76x76-3b313d93b1b5823293524b9764352ac9.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://a0.muscache.com/airbnb/static/icons/apple-touch-icon-76x76-3b313d93b1b5823293524b9764352ac9.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://a0.muscache.com/airbnb/static/icons/apple-touch-icon-120x120-52b1adb4fe3a8f825fc4b143de12ea4b.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://a0.muscache.com/airbnb/static/icons/apple-touch-icon-152x152-7b7c6444b63d8b6ebad9dae7169e5ed6.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://a0.muscache.com/airbnb/static/icons/apple-touch-icon-180x180-bcbe0e3960cd084eb8eaf1353cf3c730.png">
+    <link rel="icon" sizes="192x192" href="https://a0.muscache.com/airbnb/static/icons/android-icon-192x192-c0465f9f0380893768972a31a614b670.png">
+    <link rel="shortcut icon" sizes="76x76" type="image/x-icon" href="https://a0.muscache.com/airbnb/static/logotype_favicon-21cc8e6c6a2cca43f061d2dcabdf6e58.ico">
+    <link rel="mask-icon" href="https://a0.muscache.com/airbnb/static/icons/airbnb-0611901eac33ccfa5e93d793a2e21f09.svg" color="#FF5A5F">
+    <script data-dapp-detection="">
+        (function() {
+            let alreadyInsertedMetaTag = false
+
+            function __insertDappDetected() {
+                if (!alreadyInsertedMetaTag) {
+                    const meta = document.createElement('meta')
+                    meta.name = 'dapp-detected'
+                    document.head.appendChild(meta)
+                    alreadyInsertedMetaTag = true
+                }
+            }
+
+            if (window.hasOwnProperty('web3')) {
+                // Note a closure can't be used for this var because some sites like
+                // www.wnyc.org do a second script execution via eval for some reason.
+                window.__disableDappDetectionInsertion = true
+                    // Likely oldWeb3 is undefined and it has a property only because
+                    // we defined it. Some sites like wnyc.org are evaling all scripts
+                    // that exist again, so this is protection against multiple calls.
+                if (window.web3 === undefined) {
+                    return
+                }
+                __insertDappDetected()
+            } else {
+                var oldWeb3 = window.web3
+                Object.defineProperty(window, 'web3', {
+                    configurable: true,
+                    set: function(val) {
+                        if (!window.__disableDappDetectionInsertion)
+                            __insertDappDetected()
+                        oldWeb3 = val
+                    },
+                    get: function() {
+                        if (!window.__disableDappDetectionInsertion)
+                            __insertDappDetected()
+                        return oldWeb3
+                    }
+                })
+            }
+        })()
+    </script>
+    <script defer="" crossorigin="anonymous" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/runtime-63352261.js.download"></script>
+    <script defer="" crossorigin="anonymous" type="module" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/shims_post_modules-c35aec9e.js.download"></script>
+    <script defer="" nomodule="nomodule" crossorigin="anonymous" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/shims_pre_modules-3acf47d1.js.download"></script>
+    <script defer="" crossorigin="anonymous" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/fr-4e20255d.js.download"></script>
+    <script defer="" crossorigin="anonymous" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/index-35f0986517.js.download"></script>
+    <script defer="" crossorigin="anonymous" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/moment-e464f4fa.js.download"></script>
+    <script defer="" crossorigin="anonymous" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/react-6e122611.js.download"></script>
+    <script defer="" crossorigin="anonymous" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/aphrodite-effb7b96.js.download"></script>
+    <script defer="" crossorigin="anonymous" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/54f9-5cba1224.js.download"></script>
+    <script defer="" crossorigin="anonymous" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/e62f-4d449d3c.js.download"></script>
+    <script defer="" crossorigin="anonymous" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/1d6c-3e3b16d1.js.download"></script>
+    <script defer="" crossorigin="anonymous" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/c2bf-0d2480a0.js.download"></script>
+    <script defer="" crossorigin="anonymous" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/c760-514169ce.js.download"></script>
+    <script defer="" crossorigin="anonymous" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/1f0d-deba46c1.js.download"></script>
+    <script defer="" crossorigin="anonymous" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/initializers-017de4a9.js.download"></script>
+    <script defer="" crossorigin="anonymous" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/53d5-b383b1f9.js.download"></script>
+    <script defer="" crossorigin="anonymous" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/4b82-c72cd161.js.download"></script>
+    <script defer="" crossorigin="anonymous" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/cf40-c682b032.js.download"></script>
+    <script defer="" crossorigin="anonymous" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/Corgi-App-aa51737f.js.download"></script>
+    <script defer="" crossorigin="anonymous" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/6f94-e01f0375.js.download"></script>
+    <script defer="" crossorigin="anonymous" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/725ab21-c6964182.js.download"></script>
+    <script defer="" crossorigin="anonymous" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/2161-bc7f0cc1.js.download"></script>
+    <script defer="" crossorigin="anonymous" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/b66e-b695ef5e.js.download"></script>
+    <script defer="" crossorigin="anonymous" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/2cba-0b2d32e5.js.download"></script>
+    <script defer="" crossorigin="anonymous" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/8de2-782e133e.js.download"></script>
+    <script defer="" crossorigin="anonymous" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/bf47-fe81cfa5.js.download"></script>
+    <script defer="" crossorigin="anonymous" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/e7f8-27049fad.js.download"></script>
+    <script defer="" crossorigin="anonymous" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/webcot-LuxuryGuestLandingPageContainer_async-4dbdf9f9.js.download"></script>
+    <script defer="" crossorigin="anonymous" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/f230-ea1e5443.js.download"></script>
+    <script defer="" crossorigin="anonymous" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/d206-910421c6.js.download"></script>
+    <script defer="" crossorigin="anonymous" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/b105-935d0e63.js.download"></script>
+    <script defer="" crossorigin="anonymous" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/a295-38c48e92.js.download"></script>
+    <script defer="" crossorigin="anonymous" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/b998-6396685c.js.download"></script>
+    <script defer="" crossorigin="anonymous" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/0f43-a72603ff.js.download"></script>
+    <script defer="" crossorigin="anonymous" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/c2f9-56740def.js.download"></script>
+    <script defer="" crossorigin="anonymous" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/7c67-dd159edc.js.download"></script>
+    <script defer="" crossorigin="anonymous" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/f8fa-fdf9b98b.js.download"></script>
+    <script defer="" crossorigin="anonymous" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/c255-b3adca25.js.download"></script>
+    <script defer="" crossorigin="anonymous" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/0f0f-c8f3bbd0.js.download"></script>
+    <script defer="" crossorigin="anonymous" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/e176-ccc3f16e.js.download"></script>
+    <script defer="" crossorigin="anonymous" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/0c46-6eae28d0.js.download"></script>
+    <script defer="" crossorigin="anonymous" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/dd3a-76bb77e0.js.download"></script>
+    <script defer="" crossorigin="anonymous" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/index-87415980.js.download"></script>
+    <link rel="prefetch" href="./Locations de vacances, logements, expériences et lieux - Airbnb_files/ebb7-ac447425.js.download" crossorigin="anonymous" as="script">
+    <link rel="prefetch" href="./Locations de vacances, logements, expériences et lieux - Airbnb_files/778a-3d068734.js.download" crossorigin="anonymous" as="script">
+    <link rel="prefetch" href="./Locations de vacances, logements, expériences et lieux - Airbnb_files/ae0e-07b4138f.js.download" crossorigin="anonymous" as="script">
+    <link rel="prefetch" href="./Locations de vacances, logements, expériences et lieux - Airbnb_files/529a-5f905b4c.js.download" crossorigin="anonymous" as="script">
+    <link rel="prefetch" href="./Locations de vacances, logements, expériences et lieux - Airbnb_files/37e2-2ad82118.js.download" crossorigin="anonymous" as="script">
+    <link rel="prefetch" href="./Locations de vacances, logements, expériences et lieux - Airbnb_files/d8d8-84aae2be.js.download" crossorigin="anonymous" as="script">
+    <link rel="prefetch" href="./Locations de vacances, logements, expériences et lieux - Airbnb_files/21d4-b0e8214d.js.download" crossorigin="anonymous" as="script">
+    <link rel="prefetch" href="./Locations de vacances, logements, expériences et lieux - Airbnb_files/10d2-ae7568df.js.download" crossorigin="anonymous" as="script">
+    <link rel="prefetch" href="./Locations de vacances, logements, expériences et lieux - Airbnb_files/83ec-38c7d93a.js.download" crossorigin="anonymous" as="script">
+    <link rel="prefetch" href="./Locations de vacances, logements, expériences et lieux - Airbnb_files/0b1c-f39f1506.js.download" crossorigin="anonymous" as="script">
+    <link rel="prefetch" href="./Locations de vacances, logements, expériences et lieux - Airbnb_files/da26-75d05bfb.js.download" crossorigin="anonymous" as="script">
+    <link rel="prefetch" href="./Locations de vacances, logements, expériences et lieux - Airbnb_files/a39b-7e7a381a.js.download" crossorigin="anonymous" as="script">
+    <link rel="prefetch" href="./Locations de vacances, logements, expériences et lieux - Airbnb_files/dd53-12c8b6cb.js.download" crossorigin="anonymous" as="script">
+    <link rel="prefetch" href="./Locations de vacances, logements, expériences et lieux - Airbnb_files/5ebd-b5c6dce0.js.download" crossorigin="anonymous" as="script">
+    <link rel="prefetch" href="./Locations de vacances, logements, expériences et lieux - Airbnb_files/49fe-152f05d2.js.download" crossorigin="anonymous" as="script">
+    <link rel="prefetch" href="./Locations de vacances, logements, expériences et lieux - Airbnb_files/993b-853b25f9.js.download" crossorigin="anonymous" as="script">
+    <link rel="prefetch" href="./Locations de vacances, logements, expériences et lieux - Airbnb_files/simple-nav-header-f4c16f1c.js.download" crossorigin="anonymous" as="script">
+    <link rel="prefetch" href="./Locations de vacances, logements, expériences et lieux - Airbnb_files/5514-a20e581d.js.download" crossorigin="anonymous" as="script">
+    <link rel="prefetch" href="./Locations de vacances, logements, expériences et lieux - Airbnb_files/993b-853b25f9.js.download" crossorigin="anonymous" as="script">
+    <link rel="prefetch" href="./Locations de vacances, logements, expériences et lieux - Airbnb_files/simple-nav-Footer-e05436b8.js.download" crossorigin="anonymous" as="script">
+    <script charset="utf-8" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/8308-c28cbea3.js.download" crossorigin="anonymous"></script>
+    <script charset="utf-8" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/fieldGuideRender-b131b4d8.js.download" crossorigin="anonymous"></script>
+    <script charset="utf-8" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/ebb7-ac447425.js.download" crossorigin="anonymous"></script>
+    <script charset="utf-8" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/778a-3d068734.js.download" crossorigin="anonymous"></script>
+    <script charset="utf-8" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/ae0e-07b4138f.js.download" crossorigin="anonymous"></script>
+    <script charset="utf-8" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/529a-5f905b4c.js.download" crossorigin="anonymous"></script>
+    <script charset="utf-8" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/37e2-2ad82118.js.download" crossorigin="anonymous"></script>
+    <script charset="utf-8" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/d8d8-84aae2be.js.download" crossorigin="anonymous"></script>
+    <script charset="utf-8" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/21d4-b0e8214d.js.download" crossorigin="anonymous"></script>
+    <script charset="utf-8" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/10d2-ae7568df.js.download" crossorigin="anonymous"></script>
+    <script charset="utf-8" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/83ec-38c7d93a.js.download" crossorigin="anonymous"></script>
+    <script charset="utf-8" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/0b1c-f39f1506.js.download" crossorigin="anonymous"></script>
+    <script charset="utf-8" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/da26-75d05bfb.js.download" crossorigin="anonymous"></script>
+    <script charset="utf-8" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/a39b-7e7a381a.js.download" crossorigin="anonymous"></script>
+    <script charset="utf-8" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/dd53-12c8b6cb.js.download" crossorigin="anonymous"></script>
+    <script charset="utf-8" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/5ebd-b5c6dce0.js.download" crossorigin="anonymous"></script>
+    <script charset="utf-8" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/49fe-152f05d2.js.download" crossorigin="anonymous"></script>
+    <script charset="utf-8" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/993b-853b25f9.js.download" crossorigin="anonymous"></script>
+    <script charset="utf-8" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/simple-nav-header-f4c16f1c.js.download" crossorigin="anonymous"></script>
+    <script charset="utf-8" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/DlsLargeModal-e39cb7d8.js.download" crossorigin="anonymous"></script>
+    <script charset="utf-8" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/5514-a20e581d.js.download" crossorigin="anonymous"></script>
+    <script charset="utf-8" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/simple-nav-Footer-e05436b8.js.download" crossorigin="anonymous"></script>
+    <script type="text/javascript" async="" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/sdk.js.download"></script>
+    <script charset="utf-8" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/trackingOnload-669c5866.js.download" crossorigin="anonymous"></script>
+    <script charset="utf-8" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/raven-750b6ef7.js.download" crossorigin="anonymous"></script>
+    <script charset="utf-8" src="./Locations de vacances, logements, expériences et lieux - Airbnb_files/service-worker-initializer-b65d63d7.js.download" crossorigin="anonymous"></script>
+</head>
+
+<body class="with-new-header">
+    <div id="smart-banner"></div>
+    <div id="flash-container" class="flash-container"></div>
+    <div data-application="true">
+        <div dir="ltr">
+            <div>
+                <div class="_is5jnq">
+                    <div class="_16grqhk">
+                        <div class="_siy8gh">
+                            <div class="_1gw6tte">
+                                <header class="_4qpaw8z" data-reactroot="">
+                                    <div class="_3cn8q53">
+                                        <div class="_1fmnqpr"></div>
+                                        <div class="_3hmsj">
+                                            <nav class="_vuzcgs">
+                                                <div class="_w2q1b8">
+                                                    <div class="_1ubw29">
+                                                        
+                                                        
+                                                    <a class="_ndgmt0b" href="">
+                                                        <div class="_iglww7">La Région</div>
+                                                    </a>
+                                                    <a class="_ndgmt0b" href="">
+                                                        <div class="_iglww7">La Villa</div>
+                                                    </a>
+                                                    <a class="_ndgmt0b" href="" data-no-client-routing="" id="field-guide-toggle">
+                                                        <div class="_iglww7">Gallerie</div>
+                                                    </a>
+                                                    <a class="_ndgmt0b" href="" data-no-client-routing="" data-testid="cypress-headernav-login">
+                                                        <div class="_iglww7">Contact</div>
+                                                    </a>
+                                                </div>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                </header>
+                            </div>
+                        </div>
+                        <div class="_xca6kx"></div>
+                        <main id="site-content" tabindex="-1">
+                            <div class="_11tammf">
+                                <section>
+                                    <div class="_1ktfljf">
+                                        <div class="_po5ha8" id="marquee"><img alt="" role="presentation" sizes="1600px" src="images/hero-bg.jpg" style="width: 100%; height: 100%; position: relative; object-fit: cover;">
+                                            <div class="_tmlp83v">
+                                                <div>
+                                                    <div class="_u8abkcm">Achakar, ·&nbsp;Tanger</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="_1wbh766">
+                                            <div class="_4ljedm">
+                                                <div>
+                                                    <h1 class="_yt7dqz" style="font-family: 'Sacramento', cursive!important; font-size: 750%!important;">Villa Azur</h1>
+                                                </div>
+                                                <br />
+                                                <h1 class="_yt7dqz" style="font-size: 150%!important;">Votre paradis méditerranéen</h1></div>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <section>
+                                    <div class="_1wbh766">
+                                        <div class="_2h22gn">
+                                            <div class="_a2q765z">
+                                                <h2 class="_f7eo7f">Découvrez une oasis de luxe et style située à 10 kms de Tanger. C’est une imprenable que la Villa Azur offre à ses résidents. Elle dispose de tout ce qu’il faut pour que vous passiez un excellent séjour en toute période de l’année.</h2></div>
+                                        </div>
+                                        <div class="_c64r3f">
+                                        <div class="_1wbh766">
+                                            <div class="_2h22gn">
+                                                <div class="_hn7uhet">
+                                                    <div class="_1ql8nxs">
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="_bvfbny">
+                                                <div class="_efwm2p">
+                                                    <div class="_jov7wd">
+                                                        <div class="_1rngjwq">
+                                                            <div style="width:100%;height:100%;position:relative;background-image:url(images/photo3.jpg);background-size:cover"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="_3mnosr">
+                                                            <div class="_13gwwg" style="margin-top:0;margin-bottom:12px">
+                                                                <div class="_4fukyjv">Une vue imprenable</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="_17j792vp">texte</div>
+                                                    </div>
+                                                </div>
+                                                <div class="_efwm2p">
+                                                    <div class="_jov7wd">
+                                                        <div class="_1rngjwq">
+                                                            <div style="width:100%;height:100%;position:relative;background-image:url(images/photo5.jpg);background-size:cover"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="_3mnosr">
+                                                            <div class="_13gwwg" style="margin-top:0;margin-bottom:12px">
+                                                                <div class="_4fukyjv">titreTexte</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="_17j792vp">texte</div>
+                                                    </div>
+                                                </div>
+                                                <div class="_efwm2p">
+                                                    <div class="_jov7wd">
+                                                        <div class="_1rngjwq">
+                                                            <div style="width:100%;height:100%;position:relative;background-image:url(images/photo4.jpg);background-size:cover"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="_3mnosr">
+                                                            <div class="_13gwwg" style="margin-top:0;margin-bottom:12px">
+                                                                <div class="_4fukyjv">titreTexte</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="_17j792vp">texte</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    
+                                    <div class="_1wbh766">
+                                        <div class="_1xu8xm3">
+                                            <div class="_1horcvd">
+                                                <div class="_1rngjwq">
+                                                    <a target="_blank" aria-label="Vue sur la mer" class="_1ga1hho"><img alt="" role="presentation" sizes="1600px" src="images/photo2.jpg" class="_uhlm2" style="width: 100%; height: 100%; position: relative; object-fit: cover;"></a>
+                                                </div>
+                                            </div>
+                                            <div aria-hidden="true" class="_zmy4kt">
+                                                <div>
+                                                    <div class="_1261d14o">Vue sur la plage.</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                  <div class="container">
+    <div class="innerwrap">
+    
+      <section class="section1 clearfix">
+        <div class="textcenter">
+          <span class="shtext">Contact</span>
+          <span class="seperator"></span>
+        </div>
+      </section>
+    
+      <section class="section2 clearfix">
+        <div class="col2 column1 first">
+         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d16407.4802138939!2d-5.937434!3d35.759337!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0b882d963c25b3%3A0x37ad611146ff6e58!2sAchakar%2C%20Tanger!5e1!3m2!1sfr!2sma!4v1586352022469!5m2!1sfr!2sma" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </div>
+        <div class="col2 column2 last">
+          <div class="sec2innercont">
+            <div class="sec2addr">
+              <p>(addresse de contact)</p>
+              <p><span class="collig">Tél. :</span> </p>
+              <p><span class="collig">Email :</span> </p>
+              <p><span class="collig">Tél. 2 :</span> </p>
+            </div>
+          </div>
+          <div class="sec2contactform">
+            <h3 class="sec2frmtitle" style="color: #d35400;">Ou vous pouvez nous contacter par email :</h3>
+            <form action="mailto:issobadri@gmail.com">
+              <div class="clearfix">
+                <input class="col2 first" type="text" placeholder="Prénom">
+                <input class="col2 last" type="text" placeholder="Nom">
+              </div>
+              <div class="clearfix">
+                <input  class="col2 first" type="Email" placeholder="Email">
+                <input class="col2 last" type="text" placeholder="Téléphone">
+              </div>
+              <div class="clearfix">
+                <textarea name="textarea" id="" cols="30" rows="7">Votre message</textarea>
+              </div>
+              <div class="clearfix" style="color: #d35400;"><input type="submit" value="Envoyer"></div>
+            </form>
+          </div>
+
+        </div>
+      </section>
+    
+    </div>
+  </div>
+
+    <script id="data-apollo-state" data-apollo-state="true" type="application/json"></script>
+    <script id="data-aphrodite-css" data-aphrodite-css="true" type="application/json">["_is5jnq","_16grqhk","_siy8gh","_xca6kx","_1gw6tte","_4qpaw8z","_3cn8q53","_3hmsj","_1fmnqpr","_uzbnkqr","_1grlqto","_17ctt5","_vuzcgs","_w2q1b8","_1ubw29","_z5mecy","_xpkakx","_ndgmt0b","_iglww7","_13nrx0e3","_2wzhk5","_1gktlzdw","_ojs7nk","_1a6m7mj7","_1ophqko","_11tammf","_f7eo7f","_1ktfljf","_po5ha8","_tmlp83v","_4ljedm","_yt7dqz","_u8abkcm","_1wbh766","_2h22gn","_a2q765z","_1xu8xm3","_1horcvd","_1rngjwq","_zmy4kt","_1ga1hho","_1261d14o","_c64r3f","_bvfbny","_efwm2p","_jov7wd","_3mnosr","_1ql8nxs","_1s0x53z","_1xue6ur","_rnieqfg","_hn7uhet","_17j792vp","_13gwwg","_4fukyjv","_cj3xgx","_p62vg1","_zhz0z8","_1qtn1pl5","_1oiso9x","_jfx0bk","_121xeo4","_grequug","_1of3n47t","_14ioqz6q","_jro6t0","_rqfxvmb","_7qp4lh","_1xw8gzmn","_b28wdp","_teetq4b","_18szeamr","_10psqbo","_1s94zl78","_1vdnpag","_1wsqynx","_1l3ys1i","_tfslnm","_1g6uxjq","_1h4ps0b","_o06542u","_1tu1axq","_2ms5qb","_71vu38","_19c5bku","_14tkmhr","_bjxj6b","_1kejnocv","_krjbj","_115qwnm","_kdkpwk","_s7cvp1u","_j8ldew","_pd8gea","_9q359r","_1br4kkl","_opoa3c","_10wqwyj"]</script>
+    <div id="field-guide-container">
+        <div dir="ltr"></div>
+    </div>
+    <style>
+        #fb_xdm_frame_https {
+            visibility: hidden
+        }
+    </style>
+    <div id="fb-root"></div>
+    <div id="authModals"></div>
+    <div style="top: 0px; position: absolute; height: 1px; width: 1px; z-index: -1;"></div>
+</body>
+
+</html>
